@@ -9,18 +9,19 @@ any modern gems which allow for easy implementation, so here's my endevor to wri
 This is implemented as a Rails Engine and so is very easy to use. First add saasy_simple to
 your Gemfile.
 
-  gem 'saasy_simple', :git => 'git://github.com/jjeffus/SaasySimple.git', :require => 'SaasySimple'
+  gem 'saasy_simple', :git => 'git://github.com/vincenzor/SaasySimple.git', :require => 'SaasySimple'
 
 Run bundle install and you should be ready to start configuring. Now create
 <tt>config/initializers/saasy_simple.rb</tt> and fill in the following.
 
   module SaasySimple
     class Configuration
-      attr_accessor :url, :store_id, :secret, :username, :password, :model, :view
+      attr_accessor :url, :store_id, :a_secret, :d_secret, :username, :password, :model, :view
       def initialize
         @store_id       = 'storename'
         @url            = "http://sites.fastspring.com/#{@store_id}/product/productname"
-        @secret         = 'my_api_secret'
+        @a_secret         = 'my_api_secret_for_activate'
+        @d_secret         = 'my_api_secret_for_deactivate'
         @username       = 'username'
         @password       = 'password'
         @model          = User
